@@ -1,6 +1,13 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\CasesController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TermsController;
+use App\Http\Controllers\CartController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +22,16 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about-us', [AboutusController::class, 'index'])->name('about-us');
+Route::get('/cases', [CasesController::class, 'index'])->name('cases');
+Route::get('/about-qst', [FAQController::class, 'index'])->name('faq');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact');
+Route::get('/terms-conditions', [TermsController::class, 'index'])->name('terms');
+Route::get('/profile', [TermsController::class, 'index'])->name('profile');
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::post('/project-cards', [CasesController::class, 'list_cards']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
