@@ -13,6 +13,10 @@ class Project extends Model
     }
     public function cards()
     {
-        return $this->hasMany(ProjectCard::class);
+        return $this->hasMany(Card::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }

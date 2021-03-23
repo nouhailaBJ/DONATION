@@ -7,6 +7,7 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TermsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -20,6 +21,9 @@ use App\Http\Controllers\CartController;
 |
 */
 Route::group(['prefix' => 'admin'], function () {
+    Route::post('/add_stocks', [HomeController::class, 'add_stocks'])->name('add_stocks')->middleware('auth');
+    Route::get('/stock/delete/{id}', [HomeController::class, 'delete_stock'])->name('delete_stock')->middleware('auth');
+    Route::get('/card/input/{id}', [HomeController::class, 'card'])->middleware('auth');
     Voyager::routes();
 });
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -29,7 +33,7 @@ Route::get('/about-qst', [FAQController::class, 'index'])->name('faq');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact');
 Route::get('/terms-conditions', [TermsController::class, 'index'])->name('terms');
-Route::get('/profile', [TermsController::class, 'index'])->name('profile');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/project-cards', [CasesController::class, 'list_cards']);
 

@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+مشاريع الاهداء
+@endsection
    @section('content')
 
    <main>
@@ -15,12 +17,14 @@
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                         <div class="card_donation_padd">
                                             <div class="card card_donation">
-                                                <div class="img_donation" style="background-image: url('{{ $project->image }}');">
+                                                <div class="img_donation" style="background-image: url('{{ Voyager::image( $project->image ) }}');">
+                                                    @if ($project->category) 
                                                     <div class="donation_category">
                                                         <div class="propose-tabs">
-                                                            <button type="button" class="propose-tabs__btn"> cat </button>
+                                                            <button type="button" class="propose-tabs__btn">{{ $project->category->name }} </button>
                                                         </div>
-                                                    </div>                                       
+                                                    </div>   
+                                                    @endif                                    
                                                 </div> 
                                                 <div class="wrap-wrapper">
                                                     <div class="properties-caption">

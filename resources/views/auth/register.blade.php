@@ -1,59 +1,52 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('title')
+التسجيل
+@endsection
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+@section('content')
+<section class=" rtl_dir text-center section-padding ">
+    <form class="autorization-wrap form-contact contact_form" method="POST" action="{{ route('register') }}" >
+        @csrf
+        <div class="row pt-4">
+            <div class="col-sm-12">
+                <div class="section-tittle mb-4">
+                    <h4>انضم الينا</h4>
+                 </div>
+                <!-- Validation Errors -->
+                <x-auth-validation-errors class="mb-4" :errors="$errors" />
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <div class="col-sm-12 mt-4">
+                <div class="form-group">
+                    <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = ' اسم العضو'" placeholder="اسم العضو" required>
+                </div>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input class="form-control valid" name="number" id="number" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = ' رقم الجوال '" placeholder=" رقم الجوال" required>
+                </div>
             </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = ' بريدك الالكتروني'" placeholder=" بريدك الالكتروني" required>
+                </div>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <input class="form-control valid" name="password" id="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'كلمة المرور '" placeholder="كلمة المرور  " required>
+                </div>
             </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+            <div class="col-sm-12 ">
+                <div class="form-group">
+                    <input class="form-control valid" name="password_confirmation" id="password" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = ' تأكيد كلمة المرور  '" placeholder="تاكيد كلمة المرور ">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <button type="submit" class="button button-contactForm boxed-btn ">تسجل</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>  
+@stop

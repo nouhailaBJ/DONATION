@@ -3401,7 +3401,7 @@ hr {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.slider-area .hero-caption h1 {
-		font-size: 50px;
+		font-size: 30px;
 		line-height: 1.2
 	}
 }
@@ -3458,8 +3458,8 @@ hr {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.slider-area .hero-caption p {
-		margin-bottom: 43px;
-		font-size: 21px
+		margin-bottom: 19px;
+		font-size: 18px
 	}
 }
 
@@ -5151,12 +5151,8 @@ hr {
 }
 
 .blog_right_sidebar .single_sidebar_widget {
-	background: #fdfdfd;
+	min-height: 500px;
     padding: 30px;
-    margin-bottom: 30px;
-    border: 1px solid #eee;
-	box-shadow: -5px 2px 11px 2px rgb(137 68 123 / 28%);
-	min-height: 655px;
 }
 
 .blog_right_sidebar .single_sidebar_widget .btn_1 {
@@ -5482,7 +5478,7 @@ hr {
 .single-post-area .navigation-top .social-icons li i,
 .single-post-area .navigation-top .social-icons li span {
 	font-size: 22px;
-    color: #d3c06a;
+	color: #7b3d70;
 }
 
 .single-post-area .blog-author {
@@ -7360,18 +7356,19 @@ del {
 .rtl_dir{
   direction: rtl!important;
 }
-.slider-area{
+/* .bg_slider_img{
   background: url(../img/Group507.png);
-	background-size: auto 100%;
-	background-repeat: no-repeat;
-	background-position: left center;
-  min-height: 100vh;
-}
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left center;
+} */
 .footer{
-  padding-top: 65px;
+	position: relative;
+	top: -85px;
 }
 .slick-slider{
-  padding-top: 180px;
+    margin-top: 80px;
+    padding-top: 80px;
 }
 
 .radio-tile-group {
@@ -7556,7 +7553,7 @@ del {
 } */
 .footer_text{
 	color: #fff;
-	margin-right: 465px;
+	margin-right: 430px;
 }
 .header_second{
 	position: relative!important;
@@ -7594,7 +7591,7 @@ del {
 }
 .radio-tile-group .input-container .radio_tile2{
 	border: 1px solid #7b3d70;
-	color: #7b3d70;
+	color: #fff;
 }
 .button_case{
 	font-size: 20px;
@@ -7623,7 +7620,7 @@ del {
 	padding-top: 15%;
 }
 .autorization-wrap {
-	max-width: 435px;
+	max-width: 500px;
     width: 100%;
     margin: 0 auto;
     min-height: 410px;
@@ -7631,8 +7628,6 @@ del {
     box-sizing: border-box;
     padding: 10px;
     border-radius: 15px;
-    border: 1px solid #eee;
-	box-shadow: 4px -2px 11px #eeee;
 }
 .return_btn{
 	width: 85px;
@@ -7798,11 +7793,8 @@ del {
 	border: 1px solid #d3c06a;
 }
 .posts-list{
-	background: #fdfdfd;
-    padding: 30px;
-    margin-bottom: 30px;
-    border: 1px solid #eee;
-    box-shadow: 6px 2px 11px 2px rgb(137 68 123 / 28%);
+	border-left: 1px solid #eee;
+	padding: 40px 40px 0;
 }
 .preloader{
 	background-color:#f7f7f7;
@@ -7842,7 +7834,7 @@ del {
 	}
 	.slider-area .hero-caption p {
 		margin-bottom: 33px;
-		font-size: 15px;
+		font-size: 15px!important;
 	}
 	.radio-tile-group .input-container .radio-tile{
 		font-size: 12px;
@@ -7860,12 +7852,7 @@ del {
 .frmaster-payment-credit-card-type{
 	margin: 25px 0px 25px;
 }
-@media only screen and (max-width: 1023px)
-{
-	.checkout_wrapper{
-		flex-flow: column nowrap;
-	}
-}
+
 @media only screen and (max-width: 639px)
 {
 	.Checkout_paymentFlow {
@@ -7899,10 +7886,10 @@ del {
 	}
 }
 .image_slider{
-	width: 450px;
+	width: 706px;
 	position: relative;
-	left: -110px;
-	top: -25px;
+	left: 170px;
+	top: 0px;
 }
 
 .btn-return{
@@ -7945,6 +7932,9 @@ del {
 }
 .float-left{
 	float: left!important;
+}
+.float-right{
+	float: right!important;
 }
 .card_donation{
 		overflow: hidden;
@@ -8060,22 +8050,13 @@ del {
         font-size: 20px;
         margin-top: 15px;
     }
-    .slider-area {
-        background-position: center center!important;
-    }
     .image_slider {
         width: 372px!important;
         position: relative;
         top: 5px;
         right: 50px;
     }
-    .slider-area{
-        background: #87467a;
-        color: #fff;
-    }
-    .slider-area .hero-caption h1 , .slider-area .hero-caption p, .price_type{
-        color: #fff;
-    }
+
     .header_main{
         background: #fff;
         padding: 11px 10px 0 10px;
@@ -8106,3 +8087,314 @@ del {
     }
 }
 
+@media (max-width: 1399px) 
+{
+    .footer_text {
+			margin-right: 200px;
+    }
+}
+
+@media(max-width:978px)
+{
+    .footer_text {
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 1197px) 
+{
+  .slick-slider {
+    margin-top: 31px;
+    padding-top: 10px;
+	}
+	.footer {
+		position: relative;
+		top: -130px;
+		}
+}
+
+@media (max-width: 1105px) 
+{
+	.footer {
+    position: relative;
+    top: -130px;
+	}
+}
+
+@media (max-width: 978px)
+{
+	.footer_text {
+    margin-right: 0px;
+	}
+	.footer{
+		top: -92px;
+	}
+	.slider-area{
+		margin-top: 90px;
+	}
+}
+@media (max-width: 768px)
+{
+	.slick-slide img{
+		width: 405px!important;
+		margin-top: 67px;
+		right: -131px;
+	}
+	.slider-area {
+    margin-top: 0px;
+	}
+	.slider-area .hero-caption p {
+		margin-bottom: 0px;
+	}
+	.footer{
+		top: -160px;
+	}
+	.hero-btn {
+    padding: 14px 19px;
+	}
+}
+
+@media (max-width: 576px) {
+	.slider-area {
+    margin-top: 100px;
+	}
+	.slick-slide img {
+    width: 405px!important;
+    margin-top: -121px;
+    right: 133px;
+	}
+	.footer {
+    top: -93px;
+	}
+}
+@media (max-width: 458px) {
+	.slick-slide img {
+		width: 343px!important;
+    margin-top: 10px;
+    right: -7px;
+	}
+	.footer {
+		top: 25px;
+	}
+	.footer-social a{
+		background-color: #7b3d70;
+		color: #fff;
+	}
+}
+.checkout_user{
+	border-left: 1px solid #d1d1d1;
+	border-right: none!important;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	flex-direction: column;
+}
+.checkout_wrapper{
+	position: relative;
+  z-index: 2;
+}
+
+
+
+.Project__infoShare {
+	display: flex;
+	justify-content: flex-start;
+	z-index: -9999;
+	margin-top: -91px;
+}
+
+
+.ShareLinks {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	font-size: 15px;
+	color: #fff;
+	background: linear-gradient( 
+90deg
+,#753D6A,#753D6A);
+	max-width: 400px;
+	width: 100%;
+	height: 100px;
+	border-radius: 27px;
+	padding: 45px 30px 0 30px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px)
+{
+	.ShareLinks {
+    flex-flow: column nowrap;
+    height: 130px;
+	}
+}
+
+.ShareLinks__social a{
+	margin-right: 10px;
+  font-size: 22px;
+}
+
+
+/*form styles*/
+#msform {
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	padding: 20px 30px;
+	width: 80%;
+	margin: 0 10%;
+	color: #717171;
+	
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	margin-bottom: 15px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #753D6A;
+	font-weight: bold;
+	color: #fff;
+	border: 0 none;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .previous {
+	background: #C8C8C8;
+	color: #000;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #753D6A;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: right;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 35px;
+	line-height: 28px;
+	display: block;
+	font-size: 12px;
+	color: #333;
+	background: white;
+	border-radius: 50%;
+	margin: 0 auto 5px auto;
+	border: 2px solid #753D6A;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	right: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none; 
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #87467A;
+	color: #fff;
+}
+.time_send_radio{
+	color: #717171;
+
+}
+.time_send_radio label{
+	padding-left: 15px;
+}
+.margin-left-30{
+	margin-left: 30px;
+}
+
+@media (max-width: 992px)
+{
+	.checkout_wrapper{
+		flex-flow: column nowrap;
+	}
+	.checkout_wrapper .checkout_user{
+		max-width: 100%;
+		border-top: 1px solid #d1d1d1;
+	}
+	.ShareLinks{
+		flex-flow: row!important;
+		max-width: 100%!important;
+	}
+	#msform fieldset {
+		padding: 0px;
+		width: 90%;
+	}
+	.Checkout__cartManagement {
+		width: 100%;
+		padding: 30px 20px;
+		padding-right: 0px;
+	}
+}
+
+.card_donation_single{
+	max-height: 300px;
+    min-height: 100px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.properties-caption a:hover{
+	color: #7b3d70;
+}
+
+.single-card{
+	background: #fff;
+    border: 1px solid #eee;
+    border-radius: 19px;
+}
+
+.main-header .main-menu ul ul.submenu>li a {
+	padding: 6px 10px !important;
+	font-size: 16px;
+	color: #1D2547;
+	font-weight: 700;
+	text-transform: capitalize;
+}

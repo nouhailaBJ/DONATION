@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('content')
-
+@section('title')
+ تواصل معنا
+@endsection
 <main>
         <section class="section-padding text-center mt-4 rtl_dir">
             <div class="container">
@@ -42,6 +44,7 @@
                               <div class="col-12" style="margin-bottom: 20px;">
                                  <div class="form-group">
                                     <select class="form-control" style="float: right;" name="cat" id="name" type="text" placeholder="القسم ">
+                                       <option value="" >القسم</option>
                                        @foreach ($contact_cats as $contact_cat)
                                           <option value="{{ $contact_cat->id }}">{{ $contact_cat->name }}</option>
                                        @endforeach

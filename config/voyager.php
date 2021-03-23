@@ -144,7 +144,8 @@ return [
         ],
 
         'widgets' => [
-
+            //'App\Widgets\ProjectDimmer',
+            'App\Widgets\UserDimmer',
         ],
 
     ],

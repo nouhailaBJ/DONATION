@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Question;
 class FAQController extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class FAQController extends Controller
      */
     public function index()
     {
-        return view('faq');
+        $faqs = Question::where('status', 1)->get();
+        return view('faq', compact('faqs'));
     }
 
     /**

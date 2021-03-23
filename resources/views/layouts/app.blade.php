@@ -3,10 +3,10 @@
    <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>جمعية تحفيظ الليث</title>
+      <title>جمعية تحفيظ الليث | @yield('title') </title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/icon/favicon.png')}}">
+      <link rel="shortcut icon" type="image/x-icon" href="{{ Voyager::image(setting('site.favicon')) }}">
       <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
       <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
       <link rel="stylesheet" href="{{asset('css/slicknav.css')}}">
@@ -19,8 +19,8 @@
       <link rel="stylesheet" href="{{asset('css/style.css')}}">
       @csrf
    </head>
-   <body>
-        <div class="preloader" style="background-image: url({{asset('img/loader.gif')}});"></div>
+   <body class="slider_bg">
+        <div class="preloader" style="background-image: url({{ Voyager::image(setting('admin.loader')) }});"></div>
       <header class="header_main">
          <div class="header-area">
             <div class="main-header ">
@@ -29,7 +29,7 @@
                      <div class="row align-items-center">
                         <div class="col-xl-2 col-lg-2">
                            <div class="logo">
-                              <a href="{{ route('home') }}"> <img class="logo_image" src="{{asset('img/logo/logoo.png')}}" alt=""></a>
+                              <a href="{{ route('home') }}"> <img class="logo_image" src="{{ Voyager::image( setting('site.logo') ) }}" alt=""></a>
                            </div>
                         </div>
                         <div class="col-xl-10 col-lg-10">
@@ -42,12 +42,29 @@
                                     <li><a href="{{route('faq')}}">الأسئلة الشائعة</a></li>
                                     <li><a href="{{route('contact')}}">اتصل بنا</a></li>
                                     <li><a href="{{route('terms')}}">الشروط والأحكام</a></li>
+                                    @guest
+                                    <li><a href="{{route('login')}}"><i class="fa fa-bars"></i> <i class="far fa-user"></i></a></li>
+                                    @else
                                     <li><a href="{{route('profile')}}"><i class="fa fa-bars"></i> <i class="far fa-user"></i></a>
-                                      <ul class="submenu">
-                                        <li><a href="{{route('profile')}}">بروفايلي</a></li>
-                                        <li><a href="">تسجيل الخروج</a></li>
-                                      </ul>
-                                    </li>
+                                       <ul class="submenu">
+                                         <li><a href="{{route('profile')}}">بروفايلي</a></li>
+                                         <li><a href="{{route('profile')}}">انشاء الاهداء</a></li>
+                                         <li><a href="{{route('profile')}}">جهات الاتصال</a></li>
+                                         <li><a href="{{route('profile')}}">سجل  الإهداءات</a></li>
+                                         <li><a href="{{route('profile')}}">رصيد هديتي</a></li>
+                                         <li>
+                                           <form method="POST" action="{{ route('logout') }}">
+                                              @csrf
+                                              <a href="{{ route('logout')}}"
+                                                      onclick="event.preventDefault();
+                                                                  this.closest('form').submit();">
+                                                 تسجيل الخروج
+                                              </a>
+                                          </form>
+                                         </li>
+                                       </ul>
+                                     </li>
+                                    @endguest
                                     <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i><span class="badge badge_shopping">0</span></a></li>
                                  </ul>
                               </nav>
@@ -65,23 +82,6 @@
 
       <main>
         @yield('content')
-
-
-      <div class="container footer rtl_dir d-flex justify-content-between flex-wrap align-items-center" id="footer_all">
-               <div class="footer_all">
-                  <a href="#" class="btn hero-btn"  data-animation="fadeInUp" data-delay=".8s"><i class="far fa-question-circle"></i> الدعم</a>
-               </div>
-               <div class="footer_text">
-                  <span>جميع الحقوق محفوظة لموقع هديتي | تحفيظ الليث 2021</span>
-               </div>
-              <div class="footer-social">
-                <a href=""><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-              </div>
-            </div>
-         </div>
       </main>
    
       <!-- <div id="back-top">
