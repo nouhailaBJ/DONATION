@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Stock;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Validator;
@@ -62,7 +63,9 @@ class CartController extends Controller
 			// return $request->all();
             return response()->json(['success_message' => 'العنصر موجود بالفعل في سلة التسوق الخاصة بك', 'data' => $request->all()]);
         }
-        Cart::add($request->id, $request->name, 1, $request->stock_id, [ 'image' => $request->image, 'user' => ['giver_name' => $request->giver_name, 'giver_email' => $request->giver_email, 'giver_number' => $request->giver_number, 'receiver_name' => $request->receiver_name, 'receiver_email' => $request->receiver_email, 'receiver_number' => $request->receiver_number]])
+        $stock = Stock::findOrFail($request->stock_id);
+
+        Cart::add($request->id, $request->name, 1, $stock->price, [ 'image' => $request->image, 'user' => ['giver_name' => $request->giver_name, 'giver_email' => $request->giver_email, 'giver_number' => $request->giver_number, 'receiver_name' => $request->receiver_name, 'receiver_email' => $request->receiver_email, 'receiver_number' => $request->receiver_number]])
             ->associate('App\Project');
 		// return $request->all();
         return response()->json(['success_message' => 'تمت إضافة الاداة إلى عربة التسوق', 'data' => $request->all()]);
@@ -109,6 +112,8 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cart::remove($id);
+
+        return back()->with('success_message', 'succesfully removed');
     }
 }

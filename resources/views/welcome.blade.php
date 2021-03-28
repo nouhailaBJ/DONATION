@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-  الرئيسية 
+  الرئيسية
 @endsection
 @section('content')
       <div class="slider-area position-relative">
@@ -68,7 +68,7 @@
              <a href="{{ setting('site.instagram') }}"><i class="fab fa-instagram"></i></a>
              <a href="{{ setting('site.youtube') }}"><i class="fab fa-youtube"></i></a>
            </div>
-         </div>        
+         </div>
       </div>
          <!-- donation -->
          <form id="add-to-cart" action="" method="POST">
@@ -83,6 +83,9 @@
                     <p class="model_price"> <label for="" class="price_type">فئة السهم : </label> <span class="price_stock">100 ريال</span></p>
                   </div>
                   <div class="alert alert-danger alert-message">
+
+                  </div>
+                  <div class="alert alert-success success-message">
 
                   </div>
                   <div class="form-group">
@@ -103,7 +106,7 @@
                    <div class="form-group">
                      <input type="email" id="receiver-email" name="receiver_email" class="form-control border_raduis_25" required placeholder="بريده الالكتروني"/>
                    </div>
-      
+
                   <button class="btn btn-return" type="button" data-bs-dismiss="modal"> رجوع </button>
                   <button type="button" class="btn btn-charity" id="next_step">التالي</button>
                </div>
@@ -113,8 +116,14 @@
                     تعليم القران الكريم
                     <p class="model_price"> <label for="" class="price_type">فئة السهم  </label> <span class="price_stock">100 ريال</span></p>
                   </div>
+                    <div class="alert alert-danger alert-message">
+
+                    </div>
+                    <div class="alert alert-success success-message">
+
+                    </div>
                   <div class="row radio-tile-group cards_div">
-                  </div> 
+                  </div>
                   <div class="mini-loading">
                      <img src="/img/mini-loading.gif">
                   </div>
@@ -126,7 +135,7 @@
                      <input type="hidden" name="stock_cart" id="stock-cart" value="">
                      <input type="hidden" name="image_cart" id="image-cart" value="">
                      <button class="btn btn-charity submit-cart" type="button">اضافة للسلة</button>
-                  
+
                </div>
                </div>
             </div>

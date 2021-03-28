@@ -38,6 +38,7 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/project-cards', [CasesController::class, 'list_cards']);
 Route::post('/project-cards', [CasesController::class, 'list_cards']);
 Route::post('/add-cart', [CartController::class, 'store'])->name('cart.store');
+Route::delete('/cart/{product}', [CartController::class, 'destroy'])->name('cart.destroy');
 
 
 Route::get('/dashboard', function () {

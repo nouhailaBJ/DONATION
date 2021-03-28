@@ -1,6 +1,6 @@
 (function ($)
   { "use strict"
-  
+
    /* ======= Preloader ======= */
    $('.preloader').delay(500).fadeOut(500);
 /* 1. sticky And Scroll UP */
@@ -22,7 +22,7 @@
       }, 800);
       return false;
     });
-  
+
 
 /* 2. slick Nav */
 // mobile_menu
@@ -34,7 +34,7 @@
         openedSymbol:'-'
       });
     };
-    
+
 
 /* 3. MainSlider-1 */
     // h1-hero-active
@@ -53,7 +53,7 @@
         autoplaySpeed: 8000,
         dots: true,
         fade: true,
-        arrows: false, 
+        arrows: false,
         prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
         nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
         responsive: [{
@@ -212,7 +212,7 @@
 /* 10. WOW active */
     new WOW().init();
 
-// 11. ---- Mailchimp js --------//  
+// 11. ---- Mailchimp js --------//
     function mailChimp() {
       $('#mc_embed_signup').find('form').ajaxChimp();
     }
@@ -262,9 +262,11 @@
 
 /* home page fast donation pop up */
 $('.alert-message').hide();
+$('.success-message').hide();
 $(document).ready(function() {
   $('#next_step').on('click' , function (e) {
       $('.alert-message').hide();
+      $('.success-message').hide();
       $('#step_one').addClass('hide');
       $('#step_two').removeClass('hide');
   });
@@ -319,7 +321,7 @@ $(document).ready(function() {
 	});
 });
 
-// add to cart 
+// add to cart
 
 $(document).ready(function() {
   $('.submit-cart').on('click', function(e)
@@ -351,8 +353,10 @@ $(document).ready(function() {
         receiver_number : $('#receiver-number').val(),
 			  _token: $('input[name="_token"]').val()
 			},
-			success:function(response){
+	  success:function(response){
         $('.alert-message').hide();
+        $('.success-message').html(response.success_message);
+        $('.success-message').show();
         console.log(response);
       },
       error:function(response)
@@ -363,12 +367,15 @@ $(document).ready(function() {
         for (key in response.responseJSON.errors)
         {
           $('.alert-message').append(
-            "<div>" + 
+            "<div>" +
               response.responseJSON.errors[key] +
             "</div>"
           );
         }
-        $('#button_return').trigger("click");
+        if (!('card_id' in response.responseJSON.errors))
+        {
+            $('#button_return').trigger("click");
+        }
       }
     });
   });
