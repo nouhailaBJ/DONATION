@@ -261,17 +261,18 @@
 
 
 /* home page fast donation pop up */
-
+$('.alert-message').hide();
 $(document).ready(function() {
   $('#next_step').on('click' , function (e) {
-     $('#step_one').addClass('hide');
-     $('#step_two').removeClass('hide');
+      $('.alert-message').hide();
+      $('#step_one').addClass('hide');
+      $('#step_two').removeClass('hide');
   });
 });
 $(document).ready(function() {
   $('#button_return').on('click' , function (e) {
-     $('#step_two').addClass('hide');
-     $('#step_one').removeClass('hide');
+      $('#step_two').addClass('hide');
+      $('#step_one').removeClass('hide');
   });
 });
 
@@ -280,12 +281,19 @@ $(document).ready(function() {
 		var id=$(this).attr("data-id-popup");
 		var value = $('input[name='+ 'price'+ id +']:checked').val();
 		value = value ? value : $('.price'+id).val();
+    var stock_id = $('input[name='+ 'price'+ id +']:checked').attr('id');
+		stock_id = stock_id ? stock_id : $('.price'+id).attr('id');
 		$('.price_stock').text((value ? value : 0) + " ريال");
+    $('.cards_div').html("");
+    $('.mini-loading').show();
+    $('#id-cart').val(id);
+    $('#name-cart').val($(this).attr("data-title-popup"));
+    $('#image-cart').val($(this).attr("data-image-popup"));
+    $('#stock-cart').val(stock_id);
+
 
 
 		let _token   = $('input[name="_token"]').val();
-		$('.cards_div').html('<div style="background-image: url(\'/img/mini-loading.gif\');"></div>');
-		alert(_token);
 		$.ajax({
 			url: "/project-cards",
 			type:"POST",
@@ -294,20 +302,74 @@ $(document).ready(function() {
 			  _token: _token
 			},
 			success:function(response){
-				// console.log(response);
-				// $('.cards_div').html("");
-				// response.forEach(element => {
-				// 	$('.cards_div').append('<div class="col-md-6">\
-				// 	<div class="input-container">\
-				// 	   <input id="100" value="1" class="radio-button" type="radio" name="price">\
-				// 		   <div class="radio-tile radio-tile2">\
-				// 			   <img src="'+ element.image +'" class="image_card">\
-				// 		   </div>\
-				//    </div>\
-				//  </div>');
-				// });
+        $('.mini-loading').hide();
+				$('.cards_div').html("");
+				response.forEach(element => {
+					$('.cards_div').append('<div class="col-md-6">\
+					<div class="input-container">\
+					   <input id="'+ element.id +'" value="'+ element.id +'" class="radio-button" type="radio" name="price">\
+						   <div class="radio-tile radio-tile2">\
+							   <img src="'+ element.image +'" class="image_card">\
+						   </div>\
+				   </div>\
+				 </div>');
+				});
 			},
 		});
 	});
 });
 
+// add to cart 
+
+$(document).ready(function() {
+  $('.submit-cart').on('click', function(e)
+  {
+    var $form = $(this).closest("form");
+    $form.submit();
+  });
+});
+
+$(document).ready(function() {
+	$('#add-to-cart').on('submit' , function (e) {
+
+    e.preventDefault();
+
+    $.ajax({
+			url: "/add-cart",
+			type:"POST",
+			data:{
+			  id:$('#id-cart').val(),
+			  name:$('#name-cart').val(),
+        stock_id:$('#stock-cart').val(),
+        card_id : $('input[name="price"]:checked').attr('id'),
+			  image:$('#image-cart').val(),
+        giver_name : $('#giver-name').val() ,
+        giver_email : $('#giver-email').val(),
+        giver_number : $('#giver-number').val(),
+        receiver_name :$('#receiver-name').val() ,
+        receiver_email : $('#receiver-email').val(),
+        receiver_number : $('#receiver-number').val(),
+			  _token: $('input[name="_token"]').val()
+			},
+			success:function(response){
+        $('.alert-message').hide();
+        console.log(response);
+      },
+      error:function(response)
+      {
+        $('.alert-message').show();
+        $('.alert-message').html("");
+        console.log(response.responseJSON.errors);
+        for (key in response.responseJSON.errors)
+        {
+          $('.alert-message').append(
+            "<div>" + 
+              response.responseJSON.errors[key] +
+            "</div>"
+          );
+        }
+        $('#button_return').trigger("click");
+      }
+    });
+  });
+});

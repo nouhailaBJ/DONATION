@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class CartController extends Controller
 {
@@ -34,7 +39,33 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+		$validated = $request->validate([
+			'giver_name' => "required",
+			'giver_number'=> "required",
+            'giver_email'=> "required|email:rfc,dns",
+            'card_id' => "required",
+			'receiver_name'=> "required",
+			'receiver_number'=> "required",
+			'receiver_email' => "required|email:rfc,dns",
+			'id' => "required",
+			'name' => "required",
+			'stock_id' => "required",
+			'image' => "required",
+		]);
+
+		$duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
+            return $cartItem->id === $request->id;
+        });
+
+        if ($duplicates->isNotEmpty()) {
+			// return $request->all();
+            return response()->json(['success_message' => 'العنصر موجود بالفعل في سلة التسوق الخاصة بك', 'data' => $request->all()]);
+        }
+        Cart::add($request->id, $request->name, 1, $request->stock_id, [ 'image' => $request->image, 'user' => ['giver_name' => $request->giver_name, 'giver_email' => $request->giver_email, 'giver_number' => $request->giver_number, 'receiver_name' => $request->receiver_name, 'receiver_email' => $request->receiver_email, 'receiver_number' => $request->receiver_number]])
+            ->associate('App\Project');
+		// return $request->all();
+        return response()->json(['success_message' => 'تمت إضافة الاداة إلى عربة التسوق', 'data' => $request->all()]);
     }
 
     /**
@@ -45,7 +76,6 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**

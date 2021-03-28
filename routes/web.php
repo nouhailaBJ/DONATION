@@ -34,8 +34,11 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact');
 Route::get('/terms-conditions', [TermsController::class, 'index'])->name('terms');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile')->middleware('auth');
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/project-cards', [CasesController::class, 'list_cards']);
+Route::post('/project-cards', [CasesController::class, 'list_cards']);
+Route::post('/add-cart', [CartController::class, 'store'])->name('cart.store');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

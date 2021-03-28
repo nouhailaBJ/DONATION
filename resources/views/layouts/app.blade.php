@@ -65,7 +65,7 @@
                                        </ul>
                                      </li>
                                     @endguest
-                                    <li><a href="{{ route('cart') }}"><i class="fa fa-shopping-cart"></i><span class="badge badge_shopping">0</span></a></li>
+                                    <li><a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span class="badge badge_shopping">0</span></a></li>
                                  </ul>
                               </nav>
                            </div>

@@ -18,7 +18,7 @@ class CasesController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('category')->where('status', 0)->paginate(9);
+        $projects = Project::with('category')->where('status', 1)->paginate(9);
         return view('cases')
             ->with("projects", $projects);
     }
@@ -47,7 +47,7 @@ class CasesController extends Controller
     public function list_cards(Request $request)
     {
         $project = Project::findOrFail($request->id);
-        return $project->cards;
+        return $project->category->cards;
     }
 
     /**
