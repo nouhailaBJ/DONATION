@@ -26,9 +26,11 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/card/input/{id}', [HomeController::class, 'card'])->middleware('auth');
     Voyager::routes();
 });
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [AboutusController::class, 'index'])->name('about-us');
 Route::get('/cases', [CasesController::class, 'index'])->name('cases');
+Route::get('/case/{id}', [CasesController::class, 'single_index'])->name('cases.single');
 Route::get('/about-qst', [FAQController::class, 'index'])->name('faq');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact');

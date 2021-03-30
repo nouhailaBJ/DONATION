@@ -24,35 +24,35 @@
                </div>
             </div>
             @foreach ($projects as $project)
-            <div class="single-slider hero-overly01  slider-height slider-bg2 d-flex align-items-center ">
-               <div class="container">
-                  <div class="row justify-content-end rtl_dir">
-                     <div class="col-xxl-7 col-xl-5 col-lg-6 col-md-6 col-sm-6">
-                        <div class="hero-caption text-right rtl_dir">
-                           <h1 data-animation="fadeInUp" data-delay=".2s">{{ $project->title }}</h1>
-                           <P data-animation="fadeInUp" data-delay=".4s" style="font-size: 25px;">{{\Illuminate\Support\Str::limit($project->desc, 100)}}</P>
-                           <div class="radio-tile-group">
-                              <label for="" class="price_type">فئة السهم : </label>
-                              @foreach ($project->stocks as $stock)
-                                 <div class="input-container">
-                                 <input id="{{ $stock->id }}" value="{{ $stock->price }}" class="radio-button price{{$project->id}}" type="radio" name="price{{$project->id}}" tabindex="0">
-                                 <div class="radio-tile">
-                                    {{ $stock->price }} ريال
-                                 </div>
-                                 </div>
-                              @endforeach
-                              </div>
-                           <a href="#" class="btn hero-btn mt-4 show_pop_up" data-animation="fadeInUp" data-delay=".8s" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id-popup="{{ $project->id }}" data-title-popup="{{ $project->title }}" data-image-popup="{{ $project->image }}"><i class="fas fa-gift"></i> الإهداء السريع </a>
+                <div class="single-slider hero-overly01  slider-height slider-bg2 d-flex align-items-center ">
+                <div class="container">
+                    <div class="row justify-content-end rtl_dir">
+                        <div class="col-xxl-7 col-xl-5 col-lg-6 col-md-6 col-sm-6">
+                            <div class="hero-caption text-right rtl_dir">
+                            <h1 data-animation="fadeInUp" data-delay=".2s">{{ $project->title }}</h1>
+                            <P data-animation="fadeInUp" data-delay=".4s" style="font-size: 25px;">{{\Illuminate\Support\Str::limit($project->desc, 100)}}</P>
+                            <div class="radio-tile-group">
+                                <label for="" class="price_type">فئة السهم : </label>
+                                @foreach ($project->stocks as $stock)
+                                    <div class="input-container">
+                                    <input id="{{ $stock->id }}" value="{{ $stock->price }}" class="radio-button price{{$project->id}}" type="radio" name="price{{$project->id}}" tabindex="0">
+                                    <div class="radio-tile">
+                                        {{ $stock->price }} ريال
+                                    </div>
+                                    </div>
+                                @endforeach
+                                </div>
+                            <a href="#" class="btn hero-btn mt-4 show_pop_up" data-animation="fadeInUp" data-delay=".8s" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id-popup="{{ $project->id }}" data-title-popup="{{ $project->title }}" data-image-popup="{{ $project->image }}"><i class="fas fa-gift"></i> الإهداء السريع </a>
+                            </div>
                         </div>
-                     </div>
-                     <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-6 col-sm-6">
-                        <div class="hero-caption text-right rtl_dir">
-                           <img src="{{asset('img/bg_slider2.png')}}" alt="" class="image_slider" data-animation="fadeInLeft" data-delay=".10s">
+                        <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                            <div class="hero-caption text-right rtl_dir">
+                            <img src="{{asset('img/bg_slider2.png')}}" alt="" class="image_slider" data-animation="fadeInLeft" data-delay=".10s">
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+                    </div>
+                </div>
+                </div>
             @endforeach
          </div>
          <div class="container footer footer_bottom rtl_dir d-flex justify-content-between flex-wrap align-items-center" id="footer_all">

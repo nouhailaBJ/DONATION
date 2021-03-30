@@ -23,6 +23,17 @@ class CasesController extends Controller
             ->with("projects", $projects);
     }
 
+    public function single_index($id)
+    {
+        $project = Project::findOrFail($id);
+
+        $similar = Project::where('cat_id', $project->cat_id)->where('id', '!=', $id)->inRandomOrder()->limit(5)->get();
+        setLocale(LC_TIME, 'ar_SA');
+        return view('single_case')
+            ->with('project', $project)
+            ->with('similar', $similar);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

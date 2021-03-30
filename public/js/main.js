@@ -258,8 +258,6 @@
 
 })(jQuery);
 
-
-
 /* home page fast donation pop up */
 $('.alert-message').hide();
 $('.success-message').hide();
@@ -280,19 +278,19 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$('.show_pop_up').on('click' , function (e) {
-		var id=$(this).attr("data-id-popup");
-		var value = $('input[name='+ 'price'+ id +']:checked').val();
-		value = value ? value : $('.price'+id).val();
-    var stock_id = $('input[name='+ 'price'+ id +']:checked').attr('id');
-		stock_id = stock_id ? stock_id : $('.price'+id).attr('id');
-		$('.price_stock').text((value ? value : 0) + " ريال");
-    $('.cards_div').html("");
-    $('.mini-loading').show();
-    $('#id-cart').val(id);
-    $('#name-cart').val($(this).attr("data-title-popup"));
-    $('#image-cart').val($(this).attr("data-image-popup"));
-    $('#stock-cart').val(stock_id);
-
+        var id = $(this).attr("data-id-popup");
+        var value = $('input[name='+ 'price'+ id +']:checked').val();
+        value = value ? value : $('.price'+id).val();
+        var stock_id = $('input[name='+ 'price'+ id +']:checked').attr('id');
+        stock_id = stock_id ? stock_id : $('.price'+id).attr('id');
+        $('.quick_card_title').html($(this).attr("data-title-popup"))
+        $('.price_stock').text((value ? value : 0) + " ريال");
+        $('.cards_div').html("");
+        $('.mini-loading').show();
+        $('#id-cart').val(id);
+        $('#name-cart').val($(this).attr("data-title-popup"));
+        $('#image-cart').val($(this).attr("data-image-popup"));
+        $('#stock-cart').val(stock_id);
 
 
 		let _token   = $('input[name="_token"]').val();
@@ -303,19 +301,19 @@ $(document).ready(function() {
 			  id:id,
 			  _token: _token
 			},
-			success:function(response){
-        $('.mini-loading').hide();
-				$('.cards_div').html("");
-				response.forEach(element => {
-					$('.cards_div').append('<div class="col-md-6">\
-					<div class="input-container">\
-					   <input id="'+ element.id +'" value="'+ element.id +'" class="radio-button" type="radio" name="price">\
-						   <div class="radio-tile radio-tile2">\
-							   <img src="'+ element.image +'" class="image_card">\
-						   </div>\
-				   </div>\
-				 </div>');
-				});
+        success:function(response){
+            $('.mini-loading').hide();
+            $('.cards_div').html("");
+            response.forEach(element => {
+                $('.cards_div').append('<div class="col-md-6">\
+                <div class="input-container">\
+                    <input id="'+ element.id +'" value="'+ element.id +'" class="radio-button" type="radio" name="price">\
+                        <div class="radio-tile radio-tile2">\
+                            <img src="'+ element.image +'" class="image_card">\
+                        </div>\
+                </div>\
+                </div>');
+            });
 			},
 		});
 	});
@@ -354,6 +352,7 @@ $(document).ready(function() {
 			  _token: $('input[name="_token"]').val()
 			},
 	  success:function(response){
+        $('.badge_shopping').html(response.count);
         $('.alert-message').hide();
         $('.success-message').html(response.success_message);
         $('.success-message').show();

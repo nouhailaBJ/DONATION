@@ -4388,7 +4388,7 @@ hr {
 }
 
 .footer-social a {
-  color: #763b6b; 
+  color: #763b6b;
   font-size: 16px;
   display: inline-block;
   text-align: center;
@@ -8080,14 +8080,14 @@ del {
     }
 }
 
-@media (max-width: 575px) 
+@media (max-width: 575px)
 {
     .card_donation{
         max-height: 515px;
     }
 }
 
-@media (max-width: 1399px) 
+@media (max-width: 1399px)
 {
     .footer_text {
 			margin-right: 200px;
@@ -8102,7 +8102,7 @@ del {
 
 }
 
-@media (max-width: 1197px) 
+@media (max-width: 1197px)
 {
   .slick-slider {
     margin-top: 31px;
@@ -8114,7 +8114,7 @@ del {
 		}
 }
 
-@media (max-width: 1105px) 
+@media (max-width: 1105px)
 {
 	.footer {
     position: relative;
@@ -8211,7 +8211,7 @@ del {
 	justify-content: space-evenly;
 	font-size: 15px;
 	color: #fff;
-	background: linear-gradient( 
+	background: linear-gradient(
 90deg
 ,#753D6A,#753D6A);
 	max-width: 400px;
@@ -8245,7 +8245,7 @@ del {
 	width: 80%;
 	margin: 0 10%;
 	color: #717171;
-	
+
 	/*stacking fieldsets above each other*/
 	position: relative;
 }
@@ -8331,7 +8331,7 @@ del {
 }
 #progressbar li:first-child:after {
 	/*connector not needed before the first step*/
-	content: none; 
+	content: none;
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
@@ -8397,4 +8397,17 @@ del {
 	color: #1D2547;
 	font-weight: 700;
 	text-transform: capitalize;
+}
+
+.a-link
+{
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
 }

@@ -68,7 +68,7 @@ class CartController extends Controller
         Cart::add($request->id, $request->name, 1, $stock->price, [ 'image' => $request->image, 'user' => ['giver_name' => $request->giver_name, 'giver_email' => $request->giver_email, 'giver_number' => $request->giver_number, 'receiver_name' => $request->receiver_name, 'receiver_email' => $request->receiver_email, 'receiver_number' => $request->receiver_number]])
             ->associate('App\Project');
 		// return $request->all();
-        return response()->json(['success_message' => 'تمت إضافة الاداة إلى عربة التسوق', 'data' => $request->all()]);
+        return response()->json(['success_message' => 'تمت إضافة الاداة إلى عربة التسوق', 'data' => $request->all(), 'count' => Cart::count()]);
     }
 
     /**

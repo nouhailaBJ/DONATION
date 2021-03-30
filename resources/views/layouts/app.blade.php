@@ -65,7 +65,7 @@
                                        </ul>
                                      </li>
                                     @endguest
-                                    <li><a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span class="badge badge_shopping">0</span></a></li>
+                                    <li><a href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i><span class="badge badge_shopping">{{ Cart::count() }}</span></a></li>
                                  </ul>
                               </nav>
                            </div>
@@ -83,7 +83,7 @@
       <main>
         @yield('content')
       </main>
-   
+
       <!-- <div id="back-top">
          <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
       </div> -->
@@ -107,8 +107,9 @@
       <script src="{{asset('js/jquery.ajaxchimp.min.js')}}"></script>
       <script src="{{asset('js/plugins.js')}}"></script>
       <script src="{{asset('js/main.js')}}"></script>
+      <script src="{{asset('js/sharer.min.js')}}"></script>
       <script>
-         
+
       </script>
    </body>
 </html>
